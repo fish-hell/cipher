@@ -23,7 +23,7 @@
             }
         });
 
-        document.getElementById('decodeButton').addEventListener('click', function() {
+        /*document.getElementById('decodeButton').addEventListener('click', function() {
             const inputText = document.getElementById('inputText').value;
             try {
                 const firstDecode = base64ToUtf8(inputText);
@@ -32,4 +32,4 @@
             } catch (error) {
                 document.getElementById('outputText').value = error.message;
             }
-        });
+        });*/
