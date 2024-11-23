@@ -11,25 +11,24 @@
             return decoder.decode(binaryArray);
         }
 
-
         document.getElementById('encodeButton').addEventListener('click', function() {
             const inputText = document.getElementById('inputText').value;
             try {
+  
                 const firstEncode = utf8ToBase64(inputText);
-                const secondEncode = utf8ToBase64(firstEncode);
-                document.getElementById('outputText').value = secondEncode;
+                
+   
+                const base58Encoded = base58.encode(firstEncode);
+
+  
+                const base32Encoded = base32.encode(base58Encoded);
+
+
+                const finalBase64 = utf8ToBase64(base32Encoded);
+
+
+                document.getElementById('outputText').value = finalBase64;
             } catch (error) {
                 document.getElementById('outputText').value = error.message;
             }
         });
-
-        /*document.getElementById('decodeButton').addEventListener('click', function() {
-            const inputText = document.getElementById('inputText').value;
-            try {
-                const firstDecode = base64ToUtf8(inputText);
-                const secondDecode = base64ToUtf8(firstDecode);
-                document.getElementById('outputText').value = secondDecode;
-            } catch (error) {
-                document.getElementById('outputText').value = error.message;
-            }
-        });*/
